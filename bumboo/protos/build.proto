@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option csharp_namespace = "Bumboo.GrpcBuild.v1";
+
+import "Protos/common.proto";
+import "google/protobuf/empty.proto";
+
+service Build {
+	rpc CheckVersion(Component) returns (CheckResult);
+
+	rpc RecordBuild(Component) returns (google.protobuf.Empty);
+}
+
+message CheckResult {
+	bool validVersion = 1;
+	string message = 2;
+}

@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+option csharp_namespace = "Bumboo.GrpcRelease.v1";
+
+import "Protos/common.proto";
+import "google/protobuf/empty.proto";
+
+service Release {
+  rpc ProposeCandidate(ReleaseCandidate) returns (google.protobuf.Empty);
+  rpc DeployCandidate(Deployment) returns (google.protobuf.Empty);
+}
+
+message ReleaseCandidate {
+	int32 id = 1;	
+	repeated Component components = 2;
+}
+
+message Deployment {
+	Environment environment = 1;
+	CandidateTag candidate = 2;
+}
+
+message CandidateTag {
+	int32 id = 1;
+	string name = 2;
+}
+
+enum Environment {
+	DEV = 0;
+	STAGING = 1;
+	PROD = 2;
+}

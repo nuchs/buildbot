@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BuildBot", "BuildBot\BuildBot.csproj", "{42820D5C-BCCA-408C-96E2-18A41033B3C0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bumboo", "bumboo\Bumboo.csproj", "{AEADA1E9-6EA6-4CBA-BEF4-A94C9271EBB8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{42820D5C-BCCA-408C-96E2-18A41033B3C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42820D5C-BCCA-408C-96E2-18A41033B3C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42820D5C-BCCA-408C-96E2-18A41033B3C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42820D5C-BCCA-408C-96E2-18A41033B3C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEADA1E9-6EA6-4CBA-BEF4-A94C9271EBB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEADA1E9-6EA6-4CBA-BEF4-A94C9271EBB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEADA1E9-6EA6-4CBA-BEF4-A94C9271EBB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEADA1E9-6EA6-4CBA-BEF4-A94C9271EBB8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F013DB89-7F41-4AE4-942A-5D2F92C2B8D9}
+	EndGlobalSection
+EndGlobal
