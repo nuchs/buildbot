@@ -1,4 +1,4 @@
-﻿using BuildBot.GrpcHistory.v1;
+﻿using Bumboo.GrpcHistory.v1;
 using Bumboo;
 using Bumboo.GrpcBuild.v1;
 using Bumboo.GrpcCommon.v1;

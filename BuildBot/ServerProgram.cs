@@ -3,7 +3,7 @@ namespace BuildBot
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.Hosting;
 
-    public class Program
+    public class ServerProgram
     {
         public static void Main(string[] args)
         {

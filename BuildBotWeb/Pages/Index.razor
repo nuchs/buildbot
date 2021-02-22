@@ -1,7 +1,25 @@
 ﻿@page "/"
 
-<h1>Hello, world!</h1>
+@using BuildBotWeb.GrpcHistory.v1
+@inject History.HistoryClient HistoryClient
 
-Welcome to your new app.
+<h1>Invoke gRPC service</h1>
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+<p>
+    <input @bind="componentName" placeholder="Enter name of component to fetch history for" />
+    <button @onclick="GetHistory" class="btn btn-primary">Call gRPC service</button>
+</p>
+
+Server response: <strong>@serverResponse</strong>
+
+@code {
+    string componentName = "Bert";
+    string serverResponse;
+
+    async Task GetHistory()
+    {
+        var request = new Identifier { Id = componentName };
+        var reply = await HistoryClient.GetComponentHistoryAsync(request);
+        serverResponse = $"{reply.Name} build history\n" + string.Join('\n', reply.History.Select(h => $"\t{h.Version} built at {h.OccurredAt}"));
+    }
+}
