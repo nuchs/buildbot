@@ -19,6 +19,7 @@
             services.AddGrpc();
             services.AddSingleton<IEventStore, ListStore>();
             services.AddSingleton<IComponentVersionProjection, ComponentVersionProjection>();
+            services.AddSingleton<IComponentHistoryProjection, ComponentHistoryProjection>();
         }
 
         // This method gets called by the runtime. Use this method to configure
@@ -31,11 +32,12 @@
             }
 
             app.UseRouting();
-
+            app.UseGrpcWeb();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapGrpcService<BuildService>();
                 endpoints.MapGrpcService<ReleaseService>();
+                endpoints.MapGrpcService<HistoryService>().EnableGrpcWeb();
 
                 endpoints.MapGet("/", async context =>
                 {

@@ -7,10 +7,12 @@
 	<ItemGroup>
 		<Protobuf Include="Protos\common.proto" GrpcServices="Server" />
 		<Protobuf Include="Protos\build.proto" GrpcServices="Server" />
+		<Protobuf Include="Protos\history.proto" GrpcServices="Server" />
 		<Protobuf Include="Protos\release.proto" GrpcServices="Server" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="Grpc.AspNetCore" Version="2.34.0" />
+		<PackageReference Include="Grpc.AspNetCore.Web" Version="2.35.0" />
 	</ItemGroup>
 </Project>

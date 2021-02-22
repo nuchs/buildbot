@@ -1,4 +1,5 @@
-﻿using Bumboo;
+﻿using BuildBot.GrpcHistory.v1;
+using Bumboo;
 using Bumboo.GrpcBuild.v1;
 using Bumboo.GrpcCommon.v1;
 using Bumboo.GrpcRelease.v1;
@@ -31,11 +32,16 @@ deployCmd.AddOption(new Option<string>(new string[] { "--name", "-n" }, "Tag giv
 deployCmd.AddOption(new Option<Env>(new string[] { "--env", "-e" }, "Environment being deployed to"));
 deployCmd.Handler = CommandHandler.Create<int, string, Env>(Deploy);
 
+var historyCmd = new Command("history", "Get details of past events");
+historyCmd.AddOption(new Option<string>(new string[] { "--component", "-c" }, "Get history for component"));
+historyCmd.Handler = CommandHandler.Create<string>(History);
+
 var root = new RootCommand();
 root.AddCommand(buildCmd);
 root.AddCommand(checkCmd);
 root.AddCommand(releaseCmd);
 root.AddCommand(deployCmd);
+root.AddCommand(historyCmd);
 root.Invoke(args);
 
 void Build(string component, string version)
@@ -81,4 +87,18 @@ void Release(int buildId, string[] components)
         rc.Components.Add(new Component() { Name = parts[0], Version = parts[1].ToVersion() });
     }
     var result = client.ProposeCandidate(rc);
+}
+
+void History(string component)
+{
+    Console.WriteLine($"Get build history for {component}");
+    var channel = GrpcChannel.ForAddress(serverAddress);
+    var client = new History.HistoryClient(channel);
+
+    var results = client.GetComponentHistory(new Identifier() { Id = component });
+
+    foreach (var build in results.History)
+    {
+        Console.WriteLine($"\tVersion {build.Version} built at {build.OccurredAt}");
+    }
 }

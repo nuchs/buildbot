@@ -6,6 +6,9 @@
     using Environment = BuildBot.GrpcRelease.v1.Environment;
     using System;
     using BuildBot.GrpcBuild.v1;
+    using BuildBot.GrpcHistory.v1;
+    using BuildBot.Projections;
+    using Google.Protobuf.WellKnownTypes;
 
     public static class Convertors
     {
@@ -14,6 +17,14 @@
                 source.Major,
                 source.Minor,
                 source.Patch);
+
+        public static Version ToVersion(this BuildVersion source)
+            => new Version()
+            {
+                Major = source.Major,
+                Minor = source.Minor,
+                Patch = source.Patch
+            };
 
         public static ComponentInstance ToComponentInstance(this Component source)
             => new ComponentInstance(source.Name, source.Version.ToBuildVersion());
@@ -33,5 +44,10 @@
                 ValidVersion = result,
                 Message = result ? "Ok" : $"Version {component.Version} has already been published for {component.Name}"
             };
+
+        public static BuildRecord ToBuildRecord(this ComponentBuild build)
+        {
+            return new BuildRecord() { OccurredAt = Timestamp.FromDateTime(build.occurredAt.ToUniversalTime()), Version = build.version.ToVersion() };
+        }
     }
 }

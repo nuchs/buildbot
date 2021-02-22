@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+option csharp_namespace = "BuildBot.GrpcHistory.v1";
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+import "Protos/common.proto";
+
+service History {
+  rpc GetComponentHistory(Identifier) returns (BuildRecords);
+  rpc GetEnvironmentHistory(Identifier) returns (DeploymentsRecords);
+  rpc GetRelease(Identifier) returns (ReleaseRecord);
+}
+
+message Identifier {
+	string id = 1;	
+}
+
+message BuildRecord {
+	Version version = 1;
+	google.protobuf.Timestamp occurredAt = 2;
+}
+
+message BuildRecords {
+	string name = 1;
+	repeated BuildRecord history = 2;
+}
+
+message DeploymentsRecords {
+
+}
+
+message ReleaseRecord {
+
+}

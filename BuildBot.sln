@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BuildBot", "BuildBot\BuildB
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bumboo", "bumboo\Bumboo.csproj", "{AEADA1E9-6EA6-4CBA-BEF4-A94C9271EBB8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildBotWeb", "BuildBotWeb\BuildBotWeb.csproj", "{727A3B2E-9085-4E15-A904-FBC14632A907}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{AEADA1E9-6EA6-4CBA-BEF4-A94C9271EBB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AEADA1E9-6EA6-4CBA-BEF4-A94C9271EBB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AEADA1E9-6EA6-4CBA-BEF4-A94C9271EBB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{727A3B2E-9085-4E15-A904-FBC14632A907}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{727A3B2E-9085-4E15-A904-FBC14632A907}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{727A3B2E-9085-4E15-A904-FBC14632A907}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{727A3B2E-9085-4E15-A904-FBC14632A907}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
